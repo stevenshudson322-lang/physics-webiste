@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Physics Games</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Physics Games</title>
+
+    <style>
+        canvas {
+            border: 2px solid black;
+            background: #f0f0f0;
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Physics Games</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="topics.html">Topics</a>
-      <a href="games.html">Games</a>
-    </nav>
-  </header>
+    <header>
+        <h1>Physics Fun!</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="topics.html">Topics</a>
+            <a href="games.html">Games</a>
+        </nav>
+    </header>
 
-  <main>
-    <h2>Bouncing Ball Demo</h2>
-    <p>Simple physics demo using p5.js</p>
-    <!-- Canvas for p5.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
-    <script src="js/main.js"></script>
-  </main>
+    <main>
+        <h2>Bouncing Ball Physics Demo</h2>
+        <canvas id="gameCanvas" width="500" height="300"></canvas>
+    </main>
+
+    <script src="js/bouncingBall.js"></script>
 </body>
 </html>
+
