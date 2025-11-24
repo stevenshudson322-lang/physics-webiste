@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Physics Website</title>
-  <link rel="stylesheet" href="css/style.css?v=2">
+
+  <!-- cache-bust ?v=1 so browser reloads CSS -->
+  <link rel="stylesheet" href="css/style.css?v=1" />
 </head>
 <body>
-  <header>
-    <h1>Physics Fun</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="topics.html">Topics</a>
-      <a href="games.html">Games</a>
-    </nav>
+  <!-- site header -->
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Physics Fun!</h1>
+      <nav class="main-nav" role="navigation" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="topics.html">Topics</a></li>
+          <li><a href="games.html">Games</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <h2>Welcome to Physics Fun. The Only Website you Need to Learn Physics!</h2>
-    <p>Physics fun is built with the intent to provide those taking courses such as AP and IB physics with valuable knowledge 
-        about the subject matter. This website containes various topics from each course with detailed explaination and formauls about 
-        each topic. I addition to this, Physics Fun also includes interactive games to help visualize and experiemnt with various physics concepts 
-        to learn in a more hands on manner. Now lets get started!
-    </p>
+    <h2>Welcome to the Physics Website</h2>
+    <p>Learn physics and play interactive games!</p>
   </main>
+
+  <!-- rest of page... -->
 </body>
 </html>
+
