@@ -69,3 +69,16 @@ main {
   max-width: var(--container-max);
   margin: 0 auto;
 }
+
+/* Cannon simulation controls */
+.controls {
+    margin-bottom: 20px;
+}
+
+.controls label {
+    margin-right: 15px;
+}
+
+#output p {
+    font-size: 1.2em;
+}
