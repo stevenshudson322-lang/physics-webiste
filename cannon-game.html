@@ -282,18 +282,17 @@
                 ctx.fillText(`${meters}m`, pixelX, canvas.height - 5);
             }
 
-            // Y-axis
-            const meterPerPixelY = 600 / (canvas.height - 100);
+            // Y-axis - identical spacing to X-axis, but vertical
             ctx.beginPath();
             ctx.moveTo(CANNON_X - 30, 100);
             ctx.lineTo(CANNON_X - 30, canvas.height - 50);
             ctx.stroke();
 
-            // Draw y-axis labels every 5 meters, moved right
-            ctx.textAlign = 'right';
-            for (let meters = 0; meters <= 600; meters += 5) {
-                const pixelY = (canvas.height - 50) - (meters / 600) * (canvas.height - 150);
-                ctx.fillText(`${meters}m`, CANNON_X - 15, pixelY + 10);
+            // Draw y-axis labels every 50 meters, horizontal and readable
+            ctx.textAlign = 'left';
+            for (let meters = 0; meters <= 125; meters += 25) {
+                const pixelY = (canvas.height - 50) - (meters / 125) * (canvas.height - 150);
+                ctx.fillText(`${meters}m`, CANNON_X - 25, pixelY + 10);
             }
 
             // Axis labels
@@ -302,9 +301,9 @@
             ctx.textAlign = 'center';
             ctx.fillText('Distance (m)', canvas.width - 100, canvas.height - 50);
 
-            ctx.textAlign = 'right';
+            ctx.textAlign = 'center';
             ctx.save();
-            ctx.translate(20, 100);
+            ctx.translate(20, canvas.height / 2);
             ctx.rotate(-Math.PI / 2);
             ctx.fillText('Height (m)', 0, 0);
             ctx.restore();
