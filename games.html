@@ -13,6 +13,37 @@
             display: block;
             margin: 20px auto;
         }
+        
+        .game-description {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #0066cc;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .game-description h3 {
+            color: #0066cc;
+            margin-top: 0;
+        }
+        
+        .game-description ul, .game-description ol {
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+        
+        .game-description li {
+            margin: 8px 0;
+        }
+        
+        .game-description code {
+            background-color: #e6e6e6;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
     </style>
 </head>
 <body>
@@ -26,8 +57,25 @@
     </header>
 
     <main>
-       <h2>Cannon Projectile Simulation</h2>
-      
+       <h2>Cannon Launching Simulator</h2>
+       <section class="game-description">
+           <p>Welcome to the Cannon Launching Simulator! This interactive physics simulation lets you practice projectile motion calculations.</p>
+           <p><strong>How to play:</strong></p>
+           <ul>
+               <li>Press SPACE to start a new round</li>
+               <li>Enter an angle (0-90 degrees)</li>
+               <li>Enter a velocity (1-50 m/s)</li>
+               <li>Watch the trajectory and try to hit the target!</li>
+               <li>Use the measurement scales to help calculate the correct angle and velocity</li>
+           </ul>
+           <p><strong>To run the game locally:</strong></p>
+           <ol>
+               <li>Download the Python file: <code>cannonSim.py</code></li>
+               <li>Make sure you have Python 3 installed</li>
+               <li>Install pygame: <code>pip install pygame</code></li>
+               <li>Run the game: <code>python cannonSim.py</code></li>
+           </ol>
+       </section>
     </main>
 
 </body>
