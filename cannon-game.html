@@ -85,7 +85,7 @@
                 <li><strong>Press SPACE</strong> to start a new round</li>
                 <li><strong>Enter an angle</strong> (0-90 degrees) for the cannon barrel</li>
                 <li><strong>Enter a velocity</strong> (1-50 m/s) for the launch speed</li>
-                <li>Watch the <span style="color: green;">green trajectory line</span> showing where the ball will go</li>
+                <li>Watch the <span style="color: rgb(0, 0, 0);">green trajectory line</span> showing where the ball will go</li>
                 <li>Try to hit the red target!</li>
                 <li>Use the <strong>distance scale (bottom)</strong> and <strong>height scale (left)</strong> to calculate the correct angle and velocity</li>
             </ul>
@@ -200,13 +200,7 @@
         }
 
         function drawTrajectory() {
-            ctx.fillStyle = GREEN;
-            for (let i = 0; i < trajectory.length; i += 2) {
-                const pos = trajectory[i];
-                ctx.beginPath();
-                ctx.arc(pos.x, pos.y, 3, 0, Math.PI * 2);
-                ctx.fill();
-            }
+            // Don't draw anything - trajectory is only shown as ball trail during firing
         }
 
         function updateCannonball() {
@@ -264,18 +258,10 @@
                 ctx.lineTo(ballTrail[i].x, ballTrail[i].y);
             }
             ctx.stroke();
-
-            // Draw small circles along the trail
-            ctx.fillStyle = GREEN;
-            for (let i = 0; i < ballTrail.length; i += 3) {
-                const pos = ballTrail[i];
-                ctx.beginPath();
-                ctx.arc(pos.x, pos.y, 2, 0, Math.PI * 2);
-                ctx.fill();
-            }
         }
 
         function drawMeasurementScales() {
+            const scaleFont = '28px Arial';
             const labelFont = '32px Arial';
 
             // X-axis
@@ -287,12 +273,13 @@
             ctx.lineTo(canvas.width, canvas.height - 30);
             ctx.stroke();
 
-            // Draw x-axis tick marks only (no labels)
+            // Draw x-axis labels only (no tick marks)
+            ctx.fillStyle = BLACK;
+            ctx.font = scaleFont;
+            ctx.textAlign = 'center';
             for (let i = CANNON_X; i < canvas.width; i += 50) {
-                ctx.beginPath();
-                ctx.moveTo(i, canvas.height - 30);
-                ctx.lineTo(i, canvas.height - 15);
-                ctx.stroke();
+                const meters = Math.round((i - CANNON_X) * meterPerPixelX);
+                ctx.fillText(`${meters}m`, i, canvas.height - 5);
             }
 
             // Y-axis
@@ -302,17 +289,16 @@
             ctx.lineTo(CANNON_X - 30, canvas.height - 50);
             ctx.stroke();
 
-            // Draw y-axis tick marks only (no labels)
+            // Draw y-axis labels only (no tick marks)
+            ctx.textAlign = 'right';
             for (let i = 100; i < canvas.height - 50; i += 50) {
-                ctx.beginPath();
-                ctx.moveTo(CANNON_X - 30, i);
-                ctx.lineTo(CANNON_X - 10, i);
-                ctx.stroke();
+                const meters = Math.round((canvas.height - 50 - i) * meterPerPixelY);
+                ctx.fillText(`${meters}m`, CANNON_X - 35, i + 10);
             }
 
-            // Axis labels only
-            ctx.fillStyle = BLACK;
+            // Axis labels
             ctx.font = labelFont;
+            ctx.fillStyle = BLACK;
             ctx.textAlign = 'center';
             ctx.fillText('Distance (m)', canvas.width - 100, canvas.height - 50);
 
